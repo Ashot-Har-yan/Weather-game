@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+  }
+  
+  .game-container {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    width: 300px;
+  }
+  
+  input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 80%;
+  }
+  .result{
+    width:50%;
+    height: 50%;
+    font-size: 12px;
+    padding: 12px;
+    margin-top: 12px;
+  }
+  .game-over{
+    margin-top: 12px;
+  }
