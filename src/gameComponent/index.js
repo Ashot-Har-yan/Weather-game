@@ -26,8 +26,8 @@ const Game = () => {
   const city = cities[currentCityIndex].name;
   const API_KEY = 'e5b3f49657b2ccff409c34647081d13b'; 
   
-  const correctAudio = useRef(new Audio('/audio/correct.mp3'));
-  const wrongAudio = useRef(new Audio('/audio/wrong.mp3'));
+  const correctAudio = useRef(new Audio('../audio/correct.mp3'));
+  const wrongAudio = useRef(new Audio('../audio/wrong.mp3'));
 
   const fetchWeather = async () => {
     try {
@@ -74,6 +74,7 @@ const Game = () => {
   };
 
   return (
+
     <div className="App">
       <h1>City Temperature Guessing Game</h1>
       <div className="game-container">
@@ -81,12 +82,12 @@ const Game = () => {
         <p>What is the temperature in {city}?</p>
         <input
           type="number"
-          required
           value={userGuess}
+          required
           onChange={(e) => setUserGuess(e.target.value)}
           placeholder="Enter temperature"
         />
-        <Button type='primary' onClick={handleGuess}>Submit Guess</Button>
+        <Button type='primary' onClick={handleGuess} disabled={correctCount + wrongCount === 5 || wrongCount === 2}>Submit Guess</Button>
 
         {correctMessages.map((message, index) => (
           <div key={`correct-${index}`} className="result" style={{ backgroundColor: 'green', color: 'white' }}>
