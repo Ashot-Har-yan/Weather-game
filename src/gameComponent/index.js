@@ -51,14 +51,14 @@ const Game = () => {
       if (userTemperature === Math.floor(weather)) {
         setCorrectMessages(prev => {
           const newMessages = [...prev, correctMessage];
-          return newMessages.length > 5 ? newMessages.slice(1) : newMessages; // Limit to 5 messages
+          return newMessages.length > 5 ? newMessages.slice(1) : newMessages; 
         });
         setCorrectCount(prev => prev + 1);
         correctAudio.current.load();
       } else {
         setWrongMessages(prev => {
           const newMessages = [...prev, wrongMessage];
-          return newMessages.length > 5 ? newMessages.slice(1) : newMessages; // Limit to 5 messages
+          return newMessages.length > 5 ? newMessages.slice(1) : newMessages; 
         });
         setWrongCount(prev => prev + 1);
         wrongAudio.current.load();
@@ -87,7 +87,7 @@ const Game = () => {
           onChange={(e) => setUserGuess(e.target.value)}
           placeholder="Enter temperature"
         />
-        <Button type='primary' onClick={handleGuess} disabled={correctCount + wrongCount === 5 || wrongCount === 2}>Submit Guess</Button>
+        <Button type='primary' onClick={handleGuess} disabled={!userGuess || correctCount + wrongCount === 5 || wrongCount === 2}>Submit Guess</Button>
 
         {correctMessages.map((message, index) => (
           <div key={`correct-${index}`} className="result" style={{ backgroundColor: 'green', color: 'white' }}>
